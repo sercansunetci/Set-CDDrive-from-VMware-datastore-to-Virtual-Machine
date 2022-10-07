@@ -8,6 +8,7 @@ if($control -eq $null){
 }
 else{
     $file = Get-Content -Path '<TXT File Path\vmnames.txt>'
+    $datastore = "<Write your datastore name>"
     foreach($vmname in $file){
       Get-VM -Name $vmname | Get-CDDrive | Set-CDDrive -IsoPath "[$datastore] <ISO Path\xxx.iso>" -Connected:$true -Confirm:$false
     }
